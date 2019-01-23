@@ -12,5 +12,11 @@ Additional features :
 
 -Language independent
 
+Tech Stack :
 
+- Spring MVC - Application Framework
+- Java,SQL - Back End Development
+- JavaScript,JQuery,HTML - Front End Development
+- Postman - Backend Testing
+- TestNG - Unit testing
 
