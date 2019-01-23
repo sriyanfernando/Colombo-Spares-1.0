@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> Login to Colombo Spares</title>
+    
+	<!-- resources -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+	
+    <!-- bootstrap javascript is not included. If needed, include it with it's dependencies (jquery) -->
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+		
+            .col-md-4 {
+              margin-top: 200px;
+              background-color: #000000;
+              opacity:0.6;
+              filter:alpha(opacity=60);
+            }
+            
+        
+        
+ * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+
+        
+         
+         
+    
+    </style>
+    
+</head>
+
+<body>
+
+ <video autoplay muted loop id="myVideo">
+  <source src="../vedios/hd0924.mov" type="video/mp4">
+
+</video>
+            	
+                    <div class="col-md-4"  ">
+                   
+                    </div>
+                    
+                    
+                    
+                    <div class="col-md-4" >
+                            <!-- <h2 style="color:rgb(0, 100, 130)">  <a href="/">   <img src="../images/Neurotechnology2008_logo.png" align="middle"> NCheck Surveillance </a></h2> -->
+                            
+                        <form class="form-horizontal"  role="form" action="login" method="post">
+                            <fieldset>
+        
+                                    
+        
+                                <!-- Form Name -->
+                                <legend style="text-align:center;color:rgb(28, 165, 206)"> Login to Colombo Spares Account</legend>
+                            
+                             
+                                <!-- Text input-->
+                                
+                                <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>                           
+                                        <input id="email" name="email" placeholder="Email" class="form-control input-md" required>
+                                </div>      
+                                <br>
+                                   
+                                       
+                                <!-- Password input-->
+                                
+                                <div class="input-group">
+                                        <span class="input-group-addon"><i class=" glyphicon glyphicon-lock"></i></span>
+                                 
+                                        <input id="password" name="password" placeholder="password" class="form-control input-md" type="password"  required>
+                                </div>     
+                                
+<br>
+                                <p th:if="${param.error}" class="error" style="color:rgb(255, 22, 35)" align="center">
+                                        User name or Password Invalid!
+                                </p>
+                                    
+                                <p th:if="${param.logout}" class="error" style="color:rgb(22, 37, 255)" align="center">
+                                            You have been logout succsessfully
+                                </p>
+
+                            
+                                
+                                <!-- Button -->
+                                                        
+                                        <button id="button" class="btn btn-primary btn-block" type="submit">Login</button>
+                                       
+                                    
+                               
+                                
+                            </fieldset>
+                        </form>
+<br>
+                        <p align="center"> Don't have an account?<a href="/registration"> Sign Up Here </a> to getting started!  </p>
+                        
+                    </div>
+                    
+                    
+
+                    <div class="col-md-4">
+                           
+                        
+                    </div>
+        
+
+                    
+                
+    
+
+</body>
+
+</html>

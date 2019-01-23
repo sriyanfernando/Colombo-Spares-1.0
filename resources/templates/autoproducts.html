@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Auto Parts Search</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="http://underscorejs.org/underscore-min.js"></script>
+  
+
+  <style>
+  .table table-bordered table-striped{
+         width:50%;  
+  }
+
+  td:hover{
+      background-color:#00FF00;
+       cursor:pointer;
+  }
+h1{
+ color :grey;
+ font-size=20px;
+}
+.container{
+     margin-left:auto;
+     margin-right:auto;
+     border :3px solid grey;
+}
+.bottomcontainer{
+     margin-left:auto;
+     margin-right:auto;
+     height: 100px;
+  
+}
+
+.checkboxes {
+  text-align:left;
+}
+
+.checkboxes input{
+     margin: 0px 0px 0px 0px;
+}
+ .checkboxes label{
+       margin: 0px 20px 0px 3px;
+}
+.section {
+    display:block;
+    height: 600px;
+    width: 300px;
+    background: url('http://www.clker.com/cliparts/x/c/q/E/L/j/gray-car-top-view-90-hi.png') no-repeat;
+    position: relative;
+}
+
+.chbox1, .chbox2, .chbox3, .chbox4, .chbox5, .chbox6, .chbox7, .chbox8, .chbox9, .chbox10, .chbox11, .chbox12{
+    position: absolute;
+}
+
+.chbox1 {
+    top: 50px;
+    left: 50px;
+}
+
+.chbox2 {
+    top: 50px;
+    left: 250px;
+}
+
+.chbox3 {
+    top: 50px;
+    left: 150px;
+}
+.chbox4{
+    top: 200px;
+    left: 50px;
+
+}
+
+.chbox5{
+     top: 200px;
+    left: 250px;
+
+
+}
+.chbox6{
+    top: 200px;
+    left: 150px;
+
+
+}
+.chbox7{
+    top: 350px;
+    left: 50px;
+
+
+}
+
+.chbox8{
+    top: 350px;
+    left: 250px;
+
+
+}
+
+.chbox9{
+    top: 350px;
+    left: 150px;
+
+
+}
+.chbox10{
+    top: 500px;
+    left: 50px;
+
+
+}
+
+.chbox11{
+    top: 500px;
+    left: 250px;
+
+
+}
+
+.chbox12{
+    top: 500px;
+    left: 150px;
+
+
+}
+  </style>
+  
+</head>
+<body>
+
+
+<!--  
+   <a href="http://192.168.1.3:8080/customer/get_vehicle_list">check the all json vehicles</a><br>
+   <a href ="http://192.168.1.3:8080/customer/get_all_vehicle_by_name/?vehicle_name=MAZDA">check the models for MAZDA</a>
+-->
+
+	
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Colombo-Spares</a>
+    </div>
+       <div class="navbar-footer">
+ 
+      </div>
+  </div>
+</nav> 
+
+
+     <h1>Select vehicle to search for parts</h1>
+<h6>Select applicable items starting from a Make.</h6>
+
+<div class="container">
+ 
+                                                                                     
+  <div class="table-responsive" style="float:left;height:150px;width:200px;overflow-y:scroll">          
+    <table class="table table-bordered table-striped" id="vehicle_table" data-height="460">
+    <thead>
+      <tr class="active">
+      
+        <th>Selection of Makes</th>
+       
+      </tr>
+    </thead>
+   
+  </table>
+  
+ 
+</div>
+
+
+<div class="table-responsive" style="float:left;height:150px;width:200px;overflow-y:scroll">          
+    <table class="table table-bordered table-striped" id="vehicle_model_table" data-height="460">
+    <thead>
+      <tr class="active">
+      
+        <th>Selection of Models</th>
+       
+      </tr>
+    </thead>
+   
+  </table>
+  
+ 
+</div>
+
+
+
+<div class="table-responsive" style="float:left;height:150px;width:200px;overflow-y:scroll">          
+    <table class="table table-bordered table-striped" id="vehicle_type_table" data-height="460">
+    <thead>
+      <tr class="active">
+      
+        <th>Selection of Types</th>
+       
+      </tr>
+    </thead>
+  
+   
+  </table>
+  
+ 
+</div>
+ 
+ 
+ <div class="table-responsive" style="float:right;height:150px;width:200px;overflow-y:scroll">          
+    <table class="table table-bordered table-striped" id="vehicle_year_table" data-height="460">
+    <thead>
+      <tr class="active">
+      
+        <th>Selection of Year</th>
+       
+      </tr>
+   </thead>
+  
+  </table>
+  
+ 
+</div>
+ 
+ 
+ 
+</div>
+
+<div class="bottomcontainer">
+
+    
+        <h6>Select at least one item from location or category.</h6>
+        
+        <h4>Location</h4>
+
+      <div class="section">
+      
+        <input type="checkbox" class="chbox1" name="vehicle" value="left-front">       
+        <input type="checkbox" class="chbox2" name="vehicle" value="middle-front">
+        <input type="checkbox" class="chbox3" name="vehicle" value="right-front">
+          <input type="checkbox" class="chbox4" name="vehicle" value="left-front">       
+        <input type="checkbox" class="chbox5" name="vehicle" value="middle-front">
+        <input type="checkbox" class="chbox6" name="vehicle" value="right-front">
+          <input type="checkbox" class="chbox7" name="vehicle" value="left-front">       
+        <input type="checkbox" class="chbox8" name="vehicle" value="middle-front">
+        <input type="checkbox" class="chbox9" name="vehicle" value="right-front">
+        <input type="checkbox" class="chbox10" name="vehicle" value="left-front">       
+        <input type="checkbox" class="chbox11" name="vehicle" value="middle-front">
+        <input type="checkbox" class="chbox12" name="vehicle" value="right-front">
+          <!--
+           <img src="http://www.clker.com/cliparts/x/c/q/E/L/j/gray-car-top-view-90-hi.png" style="vertical-align:bottom" alt="cartopview" width="150" height="200">
+        
+         -->
+         
+                   
+         
+        </div>
+      
+        <div class="checkboxes">
+                  <h4>Category</h4>
+         
+         
+           <span>
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>Main Parts</label>       
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Engine related parts</label><br>
+        
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>T/M & Drive-train</label>         
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Suspension related parts</label><br>
+        
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>Steering related parts</label>         
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Brake related parts</label><br>
+        
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>A/C & Heater</label>     
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Audio</label><br>   
+         
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>Interior Accessory</label>    
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Electric Component</label><br>
+        
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>Front End Part</label>   
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Side Part</label><br>
+        
+               <input type="checkbox" class="chbox_1" name="part" value="left-front"><label>Rear End Part</label>   
+               <input type="checkbox" class="chbox_2" name="part" value="middle-front"><label>Glass Part</label><br>
+        
+         </span>
+        </div>
+         
+       
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
+
+
+
+<script>
+$(document).ready(function(){
+ 
+	//http://192.168.1.4:8080/customer/get_vehicle_list
+      
+	$.getJSON("http://192.168.1.2:8080/customer/get_distinct_vehicle_list",function(data){
+		var vehicle_data=[];
+	
+		for (var i = 0; i < data.length; i++) {
+			vehicle_data +='<tr>';	
+		    vehicle_data +='<td>'+data[i]+'</td>';	
+		}
+		
+		$('#vehicle_table').append(vehicle_data);
+		
+		  var firstclick=true;
+		$("td").click(function(){
+                
+			if(firstclick)
+			{
+				var tdContent = $(this).text();
+				//alert($(this).text());
+				$.getJSON('http://192.168.1.2:8080/customer/get_all_vehicle_by_name/?vehicle_name='+ tdContent,function(data){
+		    		var vehicle_model='';
+		    		$.each(data,function(key,value){
+		    			
+		    			vehicle_model +='<tr>';		
+		    			vehicle_model +='<td>'+value.vehicleModel +'</td>';
+		    			
+		    			
+		    		});	
+		    		$('#vehicle_model_table').append(vehicle_model);
+				
+		    		
+		    		var secondclick=true;
+		    		
+		    		$("td").click(function(){
+		    			
+		    			if(secondclick)
+		    			{
+		    		
+		    			var tdContent = $(this).text();
+		    			//alert($(this).text());
+		    			$.getJSON('http://192.168.1.2:8080/customer/get_all_vehicle_by_model/?vehicle_model='+ tdContent,function(data){
+		    	    		var vehicle_type='';
+		    	    		var vehicle_year='';
+		    	    		$.each(data,function(key,value){
+		    	    			
+		    	    			vehicle_type +='<tr>';		
+		    	    			vehicle_type +='<td>'+value.vehicleType +'</td>';
+		    	    			
+		    	    			
+		    	    		});	
+		    	    		$('#vehicle_type_table').append(vehicle_type);
+		    	    			
+		    	    		
+                             $.each(data,function(key,value){
+		    	    			
+		    	    			vehicle_year +='<tr>';		
+		    	    			vehicle_year +='<td>'+value.vehicleYear +'</td>';
+		    	    			
+		    	    			
+		    	    		});	
+		    	    		$('#vehicle_year_table').append(vehicle_year);
+		    	    	
+		    	    		
+		    	    	});
+		    	    	
+		    			secondclick=false;
+		    			}
+		    			else
+		    			{
+		    				
+		    				location.reload();
+		    				 timer.start();
+							 setTimeout( timer.stop(),5000);
+		    				var tdContent = $(this).text();
+			    			//alert($(this).text());
+			    			$.getJSON('http://192.168.1.2:8080/customer/get_all_vehicle_by_model/?vehicle_model='+ tdContent,function(data){
+			    	    		var vehicle_type='';
+			    	    		var vehicle_year='';
+			    	    		$.each(data,function(key,value){
+			    	    			
+			    	    			vehicle_type +='<tr>';		
+			    	    			vehicle_type +='<td>'+value.vehicleType +'</td>';
+			    	    			
+			    	    			
+			    	    		});	
+			    	    		$('#vehicle_type_table').append(vehicle_type);
+			    	    		
+			    	    		
+			    	    		 $.each(data,function(key,value){
+				    	    			
+				    	    			vehicle_year +='<tr>';		
+				    	    			vehicle_year +='<td>'+value.vehicleYear +'</td>';
+				    	    			
+				    	    			
+				    	    		});	
+				    	    		$('#vehicle_year_table').append(vehicle_year);
+			    	    		
+			    	    	});
+		    			}
+		    			
+		    		});
+		    			    		
+		    		
+				  });
+				
+				
+				firstclick=false;
+			  }
+			 else{
+				
+					location.reload();
+					 timer.start();
+					 setTimeout( timer.stop(),5000);
+
+					
+					var tdContent = $(this).text();
+					//alert($(this).text());
+					$.getJSON('http://192.168.1.2:8080/customer/get_all_vehicle_by_name/?vehicle_name='+ tdContent,function(data){
+			    		var vehicle_model='';
+			    		$.each(data,function(key,value){
+			    			
+			    			vehicle_model +='<tr>';		
+			    			vehicle_model +='<td>'+value.vehicleModel +'</td>';
+			    			
+			    			
+			    		});	
+			    		$('#vehicle_model_table').append(vehicle_model);
+				 });
+					
+		       }
+			
+		  	});
+		    	
+		});
+		
+	});		
+		
+</script>	
+
+	
+
+
+
+
+
+
+

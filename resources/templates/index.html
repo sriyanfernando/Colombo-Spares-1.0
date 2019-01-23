@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- resources -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <!-- bootstrap javascript is not included. If needed, include it with it's dependencies (jquery) -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-route.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-resource.js"></script>
+    <!-- app -->
+	<script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./controller/RegistrationController.js"></script>
+    <script type="text/javascript" src="./service/RegistrationService.js"></script>
+    
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      
+      <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+   filter: grayscale(100%);
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color:#83ffa4 ;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: GREEN;
+}
+
+h1{
+    color: GREEN;
+
+
+}
+
+
+ .col-md-12 {
+             
+              color:GREEN;
+            }
+            
+    p{
+     color: GREEN;
+    }  
+ <!--   
+    audio { 
+   display:none;
+}
+   -->      
+</style>
+      
+      
+       
+</head>
+
+
+
+
+<body>
+
+<!--<audio autoplay="true" src="../audios/"> -->
+
+
+<object height="45" width="167" type="application/x-shockwave-flash" id="audioPalPlayer" data="http://content.oddcast.com/host/audiopal/swf/workshop_player_shell.swf?mId=72369629.1&doorId=427&ds=http://host-d.oddcast.com/&playOnLoad=true&polFreq=1&polUnit=session">
+	<param name="movie" value="http://content.oddcast.com/host/audiopal/swf/workshop_player_shell.swf?mId=72369629.1&doorId=427&ds=http://host-d.oddcast.com/&playOnLoad=true&polFreq=1&polUnit=session" />
+	<param name="allowscriptaccess" value="always" />
+	<param name="allownetworking" value="all" />
+	<param name="base" value="/swf/" />
+	<param name="quality" value="high" />
+	<param name="bgcolor" value="#e8e9e3" />
+	<param name="height" value="45" />
+	<param name="width" value="167" />
+	<param name="wmode" value="transparent" />
+</object>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<video autoplay muted loop id="myVideo">
+  <source src="../vedios/hd0924.mov" type="video/mp4">
+
+</video>
+
+<div class="content">
+  <h1>COLOMBO SPARES</h1>
+   <p>We light up the world</p>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+
+
+
+
+	<div class="container" >
+	
+	
+		<div class="row">
+		
+		       
+			<div class="col-md-12">
+			  
+				<h2>Home</h2>
+				<hr>
+				<a href="./registration" style="color:#83ffa4">Registration</a>
+				/
+				<a href="./login" style="color:#83ffa4">Login</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

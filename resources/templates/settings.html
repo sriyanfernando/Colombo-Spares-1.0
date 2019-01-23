@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<title>Settings</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.2.4/ui-grid.css" />
+
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		  
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+		<script type="text/javascript" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-touch.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-route.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-resource.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-messages.js"></script>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-aria.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.js"></script>
+		
+		
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.2.4/ui-grid.js"></script>
+
+		
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../controller/RegistrationController.js"></script>
+		<script type="text/javascript" src="../controller/HomeController.js"></script>
+		<script type="text/javascript" src="../service/RegistrationService.js"></script>
+		<script type="text/javascript" src="../service/HomeService.js"></script>	
+
+
+		<style>
+		
+			.navbar {
+				margin-bottom: 50px;
+				border-radius: 0;
+				background-color: #000000;
+				
+			}
+	
+			 footer {
+				  background-color: #000000;
+				  color: white;
+				  padding: 15px;
+				  bottom: 0;
+				  position: fixed;
+				  width: 100%;
+				}
+	
+				a:focus, a:hover {
+				text-decoration: none;
+				}
+	</style>
+</head>
+
+
+<body ng-controller="HomeController" ng-init="getCustomer()">
+
+
+
+
+<style type="text/css">
+	
+
+</style>
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+	  <div class="collapse navbar-collapse" id="myNavbar" >
+		<div class="navbar-header" >
+			
+			<a class="navbar-brand" href="/customer/home">Colombo Spares</a>
+	   </div>
+		<ul class="nav navbar-nav navbar-right" ng-init="getCustomer()">
+			
+			<li><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Welcome {{customerName}}<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+						<li><a href="/customer/settings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
+						<li><a href="http://www.neurotechnology.com/contact.html"><span class="glyphicon glyphicon-envelope"></span> Contact Support</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	  </div>
+	</div>
+</nav>
+
+
+	
+<div class="container-fluid text-center" >    
+  
+<!-- Page Content -->
+    <div class="col-sm-12 col-md-2 sidenav">	
+		</div>
+		
+    <div class="col-sm-12 col-md-8 text-left" > 
+		<div class="panel-heading">
+			<br>
+			<span class="lead">Settings</span>
+		</div>
+
+		<div class="panel-body">
+			<div class="table-responsive">
+				<uib-accordion close-others="oneAtATime">
+
+						<div uib-accordion-group>
+								<uib-accordion-heading>
+									Email
+									( {{email}} )
+									<i class="pull-right glyphicon" ng-class="{'glyphicon glyphicon-pencil': !status.open}"></i>
+								</uib-accordion-heading>
+								<div class="container">
+	
+								</div>
+						</div>
+
+
+						<div uib-accordion-group is-open="status.openUser">
+							<uib-accordion-heading>
+										  User Name
+										  ({{customerName}})<i class="pull-right glyphicon" ng-class="{'glyphicon glyphicon-pencil': !status.openUser}"></i>	 
+									  
+							</uib-accordion-heading>
+							<div class="col-sm-3 col-md-3"></div>
+								<div class="container" ng-controller="HomeController">
+										<form class="form-horizontal" name="updateForm" method="PUT" ng-submit="submitForm()" novalidate="true">
+											<fieldset>
+													<div class="form-group">
+															<label class="control-label col-sm-3 col-md-3" for="email">New user name:</label>
+															<div class="col-sm-10 col-md-6">
+											  			<input id="name" type="text" name="name" placeholder="Enter a new name" ng-model="update.customerName" required>
+													</div>
+										  		</div>
+										  		<br>
+										  		<div class="form-group"> 
+														<div class="col-sm-offset-3 col-sm-9">
+														<button id="save" name="save" type="reset" class="btn btn-primary" ng-click="updateCustomer(update.customerName) ; status.openUser = !status.openUser "  ng-disabled="updateForm.$invalid">Save</button>
+														<button id="reset" name="reset" type="reset" class="btn btn-default" ng-click="reset() " >Discard</button> 
+													</div>	
+										  		</div>
+											</fieldset>
+										</form>
+								</div>
+						</div>
+						
+
+						
+						<div uib-accordion-group is-open="status.openPassword">	
+							<uib-accordion-heading>
+								Password
+								<i class="pull-right glyphicon" ng-class="{'glyphicon glyphicon-pencil': !status.openPassword}"></i>
+							</uib-accordion-heading>
+							<div class="col-sm-3 col-md-3"></div>
+								<div class="container" ng-controller="HomeController">
+										<form class="form-horizontal" name="updatePassword" method="PUT" ng-submit="submitForm()" novalidate="true">
+											<fieldset>
+													<div class="form-group">
+															<label class="control-label col-sm-3 col-md-3" for="email">New password:</label>
+															<div class="col-sm-10 col-md-6">
+																  <input id="password" name="password" placeholder="Enter a new Password" ng-class="{error: updatePassword.password.$error.pattern && !updatePassword.password.$pristine }" type="password" required ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" ng-minlength="8" ng-model="update.password">
+															</div>
+															<div class="col-sm-10 col-md-6">
+																	<span style="color:red"  ng-show="updatePassword.password.$error.pattern">Password must contain at least 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character.</span>
+															</div>
+															
+															
+													  </div>
+													  <div class="form-group">
+															<label class="control-label col-sm-3 col-md-3" for="email">Confirm Password:</label>
+															<div class="col-sm-10 col-md-6">
+																  <input placeholder="Reenter Password" ng-class="{error: updatePassword.passwordConfirmation.$error.match && !updatePassword.passwordConfirmation.$pristine}" type="password" name="passwordConfirmation" required ng-model="passwordConfirmation" password-confirm match-target="update.password" />
+															</div>
+															<div class="col-sm-10 col-md-6">
+																	<span style="color:red" ng-show="updatePassword.passwordConfirmation.$error.match && !updatePassword.passwordConfirmation.$pristine">Passwords do not match.</span>
+															</div>
+										  			</div>
+												  <br>
+												  
+										  		<div class="form-group"> 
+														<div class="col-sm-offset-3 col-sm-9">
+														<button id="savePassword" name="save" type="reset" class="btn btn-primary" ng-click="changePassword(update.password); status.openPassword = !status.openPassword"  ng-disabled="updateForm.$invalid">Save</button>
+														<button id="resetPassword" name="reset" type="reset" class="btn btn-default" ng-click="reset() " >Discard</button> 
+													</div>	
+										  		</div>
+											</fieldset>
+										</form>
+								</div>
+						</div>
+						</div>
+				</uib-accordion>
+			</div>
+		</div>
+		
+	</div>
+		
+    <div class="col-md-2 sidenav">
+	</div>
+  	</div>
+
+</div>
+		
+
+
+
+
+<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+	<input hidden type="submit" value="Logout"/>
+</form> 
+
+
+<footer  class="container-fluid text-center">
+	<a href=""> Copyright © 2018 Colombo Spares </a>
+</footer>
+
+
+<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+	<form>
+	  <md-toolbar>
+		<div class="md-toolbar-tools">
+		  <h2>Mango (Fruit)</h2>
+		  <span flex></span>
+		  <md-button class="md-icon-button" ng-click="cancel()">
+			<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+		  </md-button>
+		</div>
+	  </md-toolbar>
+  
+	  <md-dialog-content>
+		<div class="md-dialog-content">
+		  <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+		  <p>
+			The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
+		  </p>
+  
+		  <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">
+  
+		  <p>
+			The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the "common mango" or "Indian mango"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.
+		  </p>
+		  <p>
+			It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.
+		  </p>
+		</div>
+	  </md-dialog-content>
+  
+	  <md-dialog-actions layout="row">
+		<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+		  More on Wikipedia
+		</md-button>
+		<span flex></span>
+		<md-button ng-click="answer('not useful')">
+		 Not Useful
+		</md-button>
+		<md-button ng-click="answer('useful')">
+		  Useful
+		</md-button>
+	  </md-dialog-actions>
+	</form>
+  </md-dialog>
+  </script>
+
+</body>
+
+</html>
+
+
+

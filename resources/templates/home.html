@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<title>Welcome to Colombo Spares</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.2.4/ui-grid.css" />
+
+
+	
+		
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/5.0.1/adapter.min.js" ></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js" ></script>
+	
+	 
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.1.0/bootbox.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+		<script type="text/javascript" src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-touch.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-route.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-resource.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-animate.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-messages.js"></script>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-aria.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min.js"></script>
+		
+	
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.2.4/ui-grid.js"></script>
+		
+    
+		<script type="text/javascript" src="../janus/janus.js" ></script>
+
+
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../controller/RegistrationController.js"></script>
+		<script type="text/javascript" src="../controller/HomeController.js"></script>
+		<script type="text/javascript" src="../controller/JanusController.js"></script>
+		<script type="text/javascript" src="../service/RegistrationService.js"></script>
+		<script type="text/javascript" src="../service/HomeService.js"></script>	
+		
+          
+
+		<link rel="stylesheet" href="../janus/css/demo.css" type="text/css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.css"/>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	
+ 
+  	
+	 
+</head>
+
+
+
+
+<body ng-controller="HomeController">
+
+
+<style>
+		
+				.navbar {
+					margin-bottom: 50px;
+					border-radius: 0;
+					background-color: #7c726e;
+					
+				}
+                 
+				 footer {
+      				background-color: #000000;
+      				color: white;
+      				padding: 15px;
+					bottom: 0;
+            		position: fixed;
+					width: 100%;
+   				 }
+   				 
+   				 #div1 {
+               font-size:24px;
+               color:#000000;
+               position:left;
+               }
+			
+			
+						
+
+
+.goog-logo-link {
+   display:none !important;
+} 
+
+	
+select.google_translate_element {
+  color: black;
+}
+
+.pac-container:after {
+  display :none !important;
+  height:0px;
+  padding:0;
+  margin:0;
+}
+							
+</style>
+
+
+
+
+
+	<!-- Navigation Bar -->
+  
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <div class="collapse navbar-collapse" id="myNavbar">
+			  <div class="navbar-header">
+			  
+				<div id="div1" class="fa"></div>
+			<script>
+                    function chargebattery() {
+                     var a;
+                      a = document.getElementById("div1");
+                      a.innerHTML = "&#xf244;";
+                      setTimeout(function () {
+                            a.innerHTML = "&#xf243;";
+                        }, 1000);
+                      setTimeout(function () {
+                            a.innerHTML = "&#xf242;";
+                        }, 2000);
+                      setTimeout(function () {
+                            a.innerHTML = "&#xf241;";
+                      }, 3000);
+                      setTimeout(function () {
+                            a.innerHTML = "&#xf240;";
+                      }, 4000);
+                   }
+                       chargebattery();
+                     setInterval(chargebattery, 5000);
+               </script>
+				
+				
+				
+				<a class="navbar-brand" href="#">Colombo-Spares</a>
+				
+				
+			 </div>
+			<ul class="nav navbar-nav navbar-right" ng-init="getCustomer()">
+				
+				<li><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Welcome {{customerName}}<b class="caret"></b></a>
+					<ul class="dropdown-menu" >
+							<li><a href="/customer/settings"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
+							<li><a href="https://slitx.blogspot.com"><span class="glyphicon glyphicon-envelope"></span> Contact Support</a></li>
+							<li class="divider"></li>
+							<li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right" >
+				
+				<li><a href="" class="dropdown-toggle" data-toggle="dropdown">Home<b class="caret"></b></a>
+					<ul class="dropdown-menu" >
+							<li><a href="/customer/home/companyprofile"> Company Profile</a></li>
+							<li><a href="#"> Privacy Policy</a></li>
+							<li><a href="#">Used Items Dealing Act</a></li>
+							<li><a href="#">Links</a></li>
+							<li><a href="/customer/home/sitemap">Site Map</a></li>
+							<li class="divider"></li>
+						<!--  	<li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  -->
+					</ul>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right" >
+				
+				<li><a href="" class="dropdown-toggle" data-toggle="dropdown">Service<b class="caret"></b></a>
+					<ul class="dropdown-menu" >
+							<li><a href="#">Wish List </a></li>
+							<li><a href="/customer/home/autoproducts">Auto Related Products </a></li>
+						
+							<li class="divider"></li>
+						<!--  	<li><a href="javascript: document.logoutForm.submit()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>  -->
+					</ul>
+				</li>
+			</ul>
+			
+			
+			
+		  </div>
+		</div>
+</nav>
+
+<div class="container-fluid" > 
+
+<div class="row">
+		<div class="col-xs-12 col-md-2">
+				     <div class="well">
+				 
+				      
+                        <div id="google_translate_element"></div>
+
+                         <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                 new google.translate.TranslateElement({pageLanguage: 'en',includedLanguages:'en,si,ta'}, 'google_translate_element');
+                           }
+                        </script>
+
+                      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+				     
+				     
+				     
+					</div>
+		</div>
+
+  		<div class="col-xs-12 col-md-10">
+				<div class="col-xs-12 col-sm-12 col-md-6" >
+				
+				
+				
+		  <div class="container">
+                  <h2>Stock List</h2>
+                     <!-- Trigger the modal with a button -->
+      <div class="btn-group">
+       <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">TOYOTA PRIUS</button>
+        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal2">TOYOTA COROLLA</button>
+       <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal3">TOYOTA LAND CRUISER 200</button>
+       </div>
+     
+                          <!-- Modal -->
+                           <div class="modal fade" id="myModal" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">TOYOTA PRIUS</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/ToyotaPrius.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>TOYOTA</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>PRIUS</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>S&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2009/11&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>DAA-ZVW30&nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16294&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0002&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>1790cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td>2ZR-3JM&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>ZVW30-5086143&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	90056&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>Silver&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>2WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		5
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                   
+                     
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->        
+                   
+               <!-- Modal -->
+                           <div class="modal fade" id="myModal2" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">TOYOTA COROLLA</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/ToyotaCorolla.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>TOYOTA</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>COROLLA</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>S&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2009/11&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>DAA-ZVW30&nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16294&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0002&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>1790cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td>2ZR-3JM&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>ZVW30-5086143&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	90056&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>Silver&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>2WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		5
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                        
+                        
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->
+                        
+                        
+                          <!-- Modal -->
+                           <div class="modal fade" id="myModal3" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">TOYOTA LAND CRUISER 200</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/ToyotaLandCruiser.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>TOYOTA</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>LAND CRUISER 200</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>XZ&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2010/15&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>CBA-URJ202W &nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16298&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0198&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>4608cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td> 1UR-FE&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>URJ202-4106654&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	 	46631&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>Black&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>4WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		8
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                   
+                   
+                             
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->
+              
+              
+              
+              
+                   
+             </div>
+			        
+			              
+            <!-- -------------------------------------------------------------------------- -->
+            
+            
+            
+             <div class="container">
+                  
+                     <!-- Trigger the modal with a button -->
+      <div class="btn-group">
+       <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal_1">NISSAN NOTE</button>
+        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal_2">NISSAN AD</button>
+       <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal_3">NISSAN CARAVAN</button>
+       </div>
+     
+                          <!-- Modal -->
+                           <div class="modal fade" id="myModal_1" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">NISSAN NOTE</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/NissanNote.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>NISSAN</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>NOTE</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>e-POWER X&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2017/12&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>DAA-HE12&nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16294&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0002&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>1790cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td>2ZR-3JM&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>ZVW30-5086143&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	90056&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>Silver&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>2WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		5
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                   
+                     
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->        
+                   
+               <!-- Modal -->
+                           <div class="modal fade" id="myModal_2" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">NISSAN AD</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/NissanAd.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>NISSAN</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>AD</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>VE&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2005/13&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>DBF-VY12&nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16294&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0002&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>1790cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td>HR15&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>VY12-144792&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	90056&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>White&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>2WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		5
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                        
+                        
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->
+                        
+                        
+                          <!-- Modal -->
+                           <div class="modal fade" id="myModal_3" role="dialog">
+                               <div class="modal-dialog">
+    
+                          <!-- Modal content-->
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h1 class="modal-title">NISSAN CARAVAN</h1>
+                                                
+                                                <div class="frighttop">
+<div id="photozoom">
+<div id="mainphoto">
+<img src="../images/NissanCaravan.jpg" name="stock_image" height="324" width="565" alt=""></div><!--/selectphoto-->
+<!--/mainphoto-->
+
+
+	
+	<div class="otherpagelink" style="text-align:left;">
+	
+	<button type="button" class="btn btn-success btn-xs" onclick=" relocate_home()">Auto Parts Search</button>	
+	
+<script>
+       function relocate_home()
+       {
+           location.href = "http://192.168.1.2:8080/customer/home/autoproducts";
+       } 
+</script>
+	
+	
+	</div>
+
+</div><!--/photozoom-->
+<!--/footer-->
+</div><!--/frighttop-->
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                        </div>
+                                                <div class="modal-body">
+                                                  <h2>Details</h2>
+                                                     <table border="0" cellpadding="0" cellspacing="0" class="t05">
+                                                       <tbody>
+                                                         <tr>
+    
+                                                           <th>Make</th>
+                                                           <td>NISSAN</td>
+                                                        </tr>
+                                                         <tr>
+    
+                                                           <th>Model</th>
+                                                           <td>CARAVAN</td>
+                                                        </tr>
+                                                          <tr>
+    
+                                                           <th>Grade</th>
+                                                           <td>unknown&nbsp;</td>
+                                                         </tr>
+                                                            <tr>
+    
+                                                             <th>First&nbsp;Registration</th>
+                                                             <td>2010/15&nbsp;</td>
+                                                           </tr>
+                                                              <tr>
+    
+                                                               <th>Type</th>
+                                                               <td>CBA-URJ202W &nbsp;</td>
+                                                             </tr>
+                                                                 <tr>
+    
+                                                                  <th>Specification&nbsp;No</th>
+                                                                  <td>16298&nbsp;</td>
+                                                                </tr>
+	                                                              <tr>
+    
+	                                                               <th>Classification&nbsp;No.&nbsp;(TDN)</th>
+	                                                               <td>0198&nbsp;</td>
+                                                                 </tr>
+                                                                 <tr>
+   
+                                                                 <th>Displacement</th>
+                                                                   <td>4608cc&nbsp;
+                                                                   
+                                                                   </td>
+                                                                  </tr>
+                                                                    <tr>
+    
+                                                                     <th>Engine&nbsp;Type</th>
+                                                                     <td> 1UR-FE&nbsp;</td>
+                                                                   </tr>
+                                                                       <tr>
+    
+                                                                        <th>Fuel</th>
+                                                                        <td>Gasoline&nbsp;</td>
+                                                                      </tr>
+                                                           </tbody>
+                                                        </table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="t05">
+  <tbody>
+    <tr>
+	
+      <th>Chassis&nbsp;No.</th>
+      <td>  VWE25-095834&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Serial&nbsp;No.</th>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Mileage</th>
+      <td>
+   		
+	      	 	46631&nbsp;km
+		
+
+      	
+      	&nbsp;
+      </td>
+    </tr>
+    <tr>
+	
+      <th>Color</th>
+      <td>White&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Steering&nbsp;Wheel</th>
+      <td>RHD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Drive&nbsp;System</th>
+      <td>4WD&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Transmission</th>
+      <td>AT&nbsp;</td>
+    </tr>
+    <tr>
+	
+      <th>Capacity</th>
+      <td>
+		3
+		
+			People
+		
+		&nbsp;
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+                                                  
+                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                   </div>
+                                    </div>
+      
+                              </div>
+                          </div>
+                   
+                   
+                   
+                             
+              <!-- //////////////////////////////////////////////////////////////////////////////// -->
+              
+              
+              
+              
+                   
+             </div>
+            
+			               
+	
+			
+						<!-- Device Grid -->	
+  
+  <!--
+                           
+								   <span class="lead">Vehicle names</span>
+									<br>
+									Select one Vehicle show models
+	
+									<div ui-grid="vehicleGrid" ui-grid-selection class="grid">  </div>
+                      
+                      -->       	
+				</div>
+					
+					
+						<!-- Peripheral Table -->
+
+				<!--
+				<div class="col-xs-12 col-sm-12 col-md-6 ">
+						
+										<span class="lead">Camera List : {{devHardwareId}}</span>
+										<br>
+										<br>
+				
+						
+									
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6" ng-controller="JanusController" ng-repeat="p in peripheralDetails track by p.perHardwareId">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title"><span class="glyphicon glyphicon-camera"></span> {{p.perHardwareId}}  <span class="label label-info hide" id="remote1"></span></h3>
+										</div>
+										<div class="panel-body" id="videoremote_{{p.peripheralId}}">
+										</div>
+										<div class="panel-footer">
+											<button id="startButton" class="btn btn-success" type="submit" ng-click="peripheralRequest(p.device.devHardwareId,p.perHardwareId,'Start')">Start</button>
+											<button id="stopButton"  class = "btn btn-danger" type="submit" ng-click="peripheralRequest(p.device.devHardwareId,p.perHardwareId,'Stop')">Stop</button>
+										</div>
+									</div>
+								</div>
+							</div>
+				</div>
+							
+				
+				-->
+				
+				 </div> 
+		</div>		
+</div>
+ 
+  
+
+
+
+<!--
+<div class="col-sm-11" ng-init="getVehicleList()">
+    
+</div>
+
+-->
+
+    <!-- <div class="col-sm-2 sidenav"></div> -->
+    
+
+
+
+
+   
+
+
+</body>
+
+     
+     
+
+	<form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+		<input hidden type="submit" value="Logout"/>
+	</form> 
+	
+
+	<footer  class="container-fluid text-center">
+	    <a href="https://slitx.blogspot.com/"> Copyright © 1998 - 2018 Colombo-Spares & Developed by Sriyan Fernando </a>
+	
+	</footer>
+
+</html>
